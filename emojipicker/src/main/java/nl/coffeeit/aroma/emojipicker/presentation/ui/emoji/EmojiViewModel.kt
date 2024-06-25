@@ -72,7 +72,7 @@ class EmojiViewModel(
             sortedEntries?.forEach { emoji ->
                 val filteredEmojis =
                     if (query.isNullOrEmpty()) emoji.value else emoji.value.filter {
-                        it["name"]?.contains(query) == true
+                        it["name"]?.contains(query, true) == true
                     }
                 if (filteredEmojis.isNotEmpty()) {
                     EmojiCategory.values().find { it.key == emoji.key }?.let { category ->
